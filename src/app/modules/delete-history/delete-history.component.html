@@ -1,0 +1,17 @@
+<div class="container">
+  <div *ngIf="searches.length === 0" class="d-flex justify-content-center align-items-center">
+    <h3>Histórico vazio</h3>
+  </div>
+  <div class="content-alert" *ngIf="searches.length > 0">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <p>Tem certeza que deseja apagar o histórico de pesquisa?</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  
+  <div class="content-buttons">
+    <button type="button" class="btn btn-danger btn-width" [disabled]="searches.length === 0" (click)="deleteSearches()">Excluir</button>
+    <button type="button" class="btn btn-secondary btn-width" routerLink="/">Cancelar</button>
+  </div>
+</div>
+

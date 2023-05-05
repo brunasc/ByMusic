@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="searches.length === 0" class="d-flex justify-content-center align-items-center">
+    <h3>Histórico vazio</h3>
+  </div>
+  <ul class="list-group" *ngIf="searches.length > 0">
+    <li class="list-group-item" *ngFor="let search of searches">
+      {{search}}
+    </li>
+  </ul>
+
+  <div class="container-buttons">
+    <button type="button" class="btn btn-primary" [disabled]="searches.length === 0" routerLink="/search/delete-history">Excluir Histórico</button>
+    <button type="button" class="btn btn-secondary" routerLink="/">Voltar</button>
+  </div>
+</div>

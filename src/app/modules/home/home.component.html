@@ -1,0 +1,21 @@
+<div class=" container container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-md-6 content-artist">
+      <h2 class="title">Top 5 Artistas</h2>
+      <ul class="artist">
+        <li *ngFor="let artist of artists;let i = index" class="list-artist">
+          <p>{{artists[i]['@attr']['rank']}} - {{artist.name}}</p>
+
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2 class="title">Top 5 Álbuns</h2>
+      <ul>
+        <li *ngFor="let album of albums">
+          <p> <img [src]="album.image[0]['#text']" [alt]="album.name"> {{album.name}} </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

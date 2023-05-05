@@ -1,0 +1,39 @@
+<div class="container container-fluid">
+  <div class="sub-title text-center">
+    <h4>Encontrar Álbum</h4>
+  </div>
+  <form [formGroup]="form" class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" formControlName="search">
+    <button class="btn btn-outline-primary" type="submit" (click)="onSubmit()">Pesquisar</button>
+  </form>
+  <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <small class="text-danger" *ngIf="noResults">
+    Nenhum resultado encontrado
+  </small>
+  <div *ngIf="!isLoading && albums.length" class="container-table">
+    <table class="table table-striped table-bordered table-hover table-sm w-100" datatable [dtOptions]="dtOptions">
+      <thead>
+        <tr>
+          <th scope="col">Nome do Álbum</th>
+          <th scope="col">Artista</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let album of albums">
+          <td>{{album.name}}</td>
+          <td>{{album.artist}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="container-buttons">
+    <button type="button" class="btn btn-primary" routerLink="/search/consult-history">Consultar Histórico</button>
+    <button type="button" class="btn btn-secondary" routerLink="/">Voltar</button>
+  </div>
+</div>
